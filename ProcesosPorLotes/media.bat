@@ -1,5 +1,5 @@
 @echo off
-::Nombre: Prueba Argumentos
+::Nombre: Media de 3 Números
 ::Autor: Javier Romero
 ::Fecha: 18/11/24 10:09
 
