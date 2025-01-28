@@ -1,5 +1,5 @@
 #!/bin/bash
-#Ejercicio 15
+#Script para entregar Agenda.sh
 #Autor: Javier Romero Alonso
 #Fecha: 28-01-2025
 
@@ -34,7 +34,7 @@ while true; do
 
 			echo ""
 
-			if  grep $dni Agenda.txt; then
+			if  grep "$dni:" Agenda.txt; then
 
 				echo "Usuario ya se encuentra en Agenda.txt"
 			else
@@ -43,7 +43,7 @@ while true; do
 				read -p "Introduce los Apellidos: " Apellidos
 				read -p "Introduce su Localidad: " Localidad
 
-				echo "$dni:$Nombre:$Apellidos:Localidad" >> Agenda.txt
+				echo "$dni:$Nombre:$Apellidos:$Localidad" >> Agenda.txt
 				echo ""
 				echo "Usuario Añadido"
 				echo ""
@@ -54,7 +54,7 @@ while true; do
 			echo "Has Decidido buscar un usuario"
 			read -p "Introduce un DNI para buscar: " dni
 
-			if  grep $dni Agenda.txt; then
+			if  grep "$dni:" Agenda.txt; then
 
 				Nombre=$(grep "$dni:" Agenda.txt | cut -f 2 -d ":")
 				Apellidos=$(grep "$dni:" Agenda.txt | cut -f 3 -d ":")
