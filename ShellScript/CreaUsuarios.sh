@@ -2,6 +2,7 @@
 #Script Entrega CreaUsuarios
 #Autor: Javier Romero Alonso
 #Fecha: 29-01-2025
+#Lo único que no se si está bien es que los usuarios tengan que logearse con la contraseña encriptada
 
 clear
 
@@ -19,9 +20,19 @@ if [ $UID != 0 ];then
 
 fi
 
-encriptado=$(openssl passwd $2 -6 | head -1 | cut -c 4-)
+encriptado=$(openssl passwd $2 -6 | head -1)
 
-groupadd $3 2> /dev/null
+if grep "$3:" /etc/group > /dev/null;then
+
+	echo "El grupo $3 ya existe, no se creará"
+
+else
+
+	echo "EL grupo $3 no existe, creando grupo"
+
+	groupadd $3
+
+fi
 
 for ((i=1; i<=$4; i++)) do
 
