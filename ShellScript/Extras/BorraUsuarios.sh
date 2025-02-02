@@ -28,7 +28,7 @@ fi
 
 for ((i=1; i<=$2; i++)); do
 
-	if grep "$1$i" /etc/passwd 2> /dev/null;then
+	if grep "$1$i:" /etc/passwd 2> /dev/null;then
 
 		userdel $1$i
 		echo "Usuario $1$i borrado"
