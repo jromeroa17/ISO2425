@@ -34,12 +34,12 @@ while true; do
 
 			echo "Creando Copia de Seguridad"
 
-			tar  -c -f  /home/$USER/BAK/$ano$mes$dia.tgz /home/$USER/Documentos
-
+			tar  -czf  /home/$USER/BAK/$ano$mes$dia.tgz /home/$USER/Documents 2>/dev/null
 		;;
 
 		3)
-
+			echo "Descomprimiendo Archivos"
+			tar -xvf /home/$USER/BAK/$ano$mes$dia.tgz -C /home/$USER/Documents 2>/dev/null
 
 
 
