@@ -22,10 +22,10 @@ fi
 #ConArraysEstoNoPasaba
 
 
-if find $1 -name "[[:upper:]]*" >/dev/null; then
+if find $1 -name "[A-Z]*" >/dev/null; then
 
 
-	for fich in `find $1 -name "[[:upper:]]*"`; do
+	for fich in `find $1 -name "[A-Z]*"`; do
 
 		lineas=$(wc -l $fich | cut -f 1 -d " ")
 		nmitad=$(($lineas/2))
@@ -56,5 +56,10 @@ if find $1 -name "[[:upper:]]*" >/dev/null; then
 		cat $fich.swap
 
 	done
+
+else
+
+	echo "Fichero que empiece por mayúscula no encontrado"
+
 
 fi
