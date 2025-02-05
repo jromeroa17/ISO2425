@@ -71,7 +71,7 @@ while [ $counter -lt $2 ]; do
 		;;
 
 		"D")
-  			if [ $op == 0 ]; then
+  			if [ $op2 == 0 ]; then
 
      				echo "Indefinido"
 	 			exit
