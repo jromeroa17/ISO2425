@@ -71,6 +71,12 @@ while [ $counter -lt $2 ]; do
 		;;
 
 		"D")
+  			if [ $op == 0 ]; then
+
+     				echo "Indefinido"
+	 			exit
+
+     			fi
 
 			res=$((op1/op2))
 			echo "La división de $op1 entre $op2 es $res"
