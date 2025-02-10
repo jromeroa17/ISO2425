@@ -49,7 +49,7 @@ fi
 
 #Lo demás
 
-
+#Tendrían que ser solo los txt, pero como no tengo ninguno los cojo todos. Tengo que quitar el primer if que comprueba que sean ficheros y ponerle la extensión .txt en el comodín
 for fich in $2/*; do
 
 
