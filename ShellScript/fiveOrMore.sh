@@ -50,6 +50,9 @@ fi
 #Lo demás
 
 #Tendrían que ser solo los txt, pero como no tengo ninguno los cojo todos. Tengo que quitar el primer if que comprueba que sean ficheros y ponerle la extensión .txt en el comodín
+
+counter=0
+
 for fich in $2/*; do
 
 
@@ -69,6 +72,7 @@ for fich in $2/*; do
 
 			echo "Este fichero tiene $palabras palabras" > $fich.q
 			cat $fich >> $fich.q
+   			counter=$((counter+1))
 
 
 		else
@@ -80,3 +84,4 @@ for fich in $2/*; do
 
 	fi
 done
+echo "Había $counter ficheros" >> $1
