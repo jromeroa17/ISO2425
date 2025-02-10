@@ -55,17 +55,26 @@ for fich in $2/*; do
 
 
 	if [  ! -d $fich ]; then
+		echo ""
 		echo "Cuantas palabras tiene $fich"
 		lineas=$(wc -l $fich | cut -f 1 -d " ")
 		palabras=$(wc -w $fich | cut -f 1 -d " ")
 
 		if [ $lineas -gt 5 ]; then
+
+			echo ""
 			touch $1
 			echo "$fich tiene 5 o más líneas"
 			echo $fich >> $1
 
 			echo "Este fichero tiene $palabras palabras" > $fich.q
 			cat $fich >> $fich.q
+
+
+		else
+
+			echo ""
+			echo "$fich tiene menos de 5 lineas"
 
 		fi
 
