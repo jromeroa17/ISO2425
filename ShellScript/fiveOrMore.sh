@@ -53,7 +53,7 @@ fi
 
 counter=0
 
-for fich in $2/*; do
+for fich in $2/*.txt; do
 
 
 
