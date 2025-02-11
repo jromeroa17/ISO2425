@@ -23,7 +23,7 @@ fi
 
 #Ejecución
 
-if grep "$1:" /etc/passwd>/dev/null; then
+if grep "^$1:" /etc/passwd>/dev/null; then
 
 	echo "Usuario Existe"
 
@@ -47,7 +47,7 @@ for i in $@; do
 
 	else
 
-		if grep "$i:" /etc/group>/dev/null; then
+		if grep "^$i:" /etc/group>/dev/null; then
 
 			echo "Grupo Existe"
 
@@ -64,3 +64,5 @@ for i in $@; do
 	echo "$1 añadido a $i"
 	echo ""
 done
+echo "El Usuario $1 ha sido creado correctamente"
+grep "^$1:" /etc/passwd
