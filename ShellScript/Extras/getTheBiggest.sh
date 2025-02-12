@@ -59,7 +59,7 @@ declare -A nlineas=()
 
 for fich in $2/*; do
 
-	if [ ! -d $fich ]; then
+	if [ -f  $fich ]; then
 
 		numlineas=$(wc -l $fich | cut -f 1 -d " ")
 		nlineas[$fich]="$numlineas"
@@ -75,9 +75,55 @@ for key in ${!nlineas[@]}; do
 
 done
 
+counter=0
+victorias=0
+encuentros=0
+declare -A resultados=()
+
+echo "================================================="
+
+for key in ${!nlineas[@]}; do
+
+	echo "comparando ${key}"
+
+	for key2 in ${!nlineas[@]}; do
 
 
+		echo "Comparando ${key} y ${key2}"
+		uno="${nlineas[$key]}"
+		dos="${nlineas[$key2]}"
+		echo "$uno contra $dos"
+		encuentros=$((encuentros+1))
+		if [ $uno -ge $dos ]; then
 
+			victorias=$((victorias+1))
+		fi
+
+
+		if [ $encuentros == 8 ]; then
+
+			resultados[$key]="$victorias"
+
+		fi
+
+	done
+
+	counter=$((counter+1))
+	if [ $counter == 8 ]; then
+
+		echo "Ya son 8 me he cansado"
+		break
+
+	fi
+done
+
+echo "=============================================================="
+
+for key in ${!resultados[@]}; do
+
+	echo "El fichero ${key} ha ganado ${resultados[$key]}"
+
+done
 
 
 
