@@ -22,7 +22,6 @@ def separa_rutas(fichero):
             fichs.append(path)
         else:
             print(f"{path} no existe")
-
     return dires,fichs #Te devuelve una tupla con las dos lista
 
 def borra_fich(fich):
@@ -32,6 +31,7 @@ def borra_fich(fich):
     else:
         print('Fichero no existe o no está en la lista')
 
+# Debería usar el ls de os pero bueno, para algo sé usar subprocess
 def my_ls(ndir):
     if ndir in directorios:
         infor = subprocess.run(['ls', '-l', f'{ndir}'], text=True, capture_output=True)
@@ -87,3 +87,5 @@ if __name__ == '__main__':
             case 'E':
                 print("Saliendo del programa")
                 break
+            case _:
+                print(f"Opción {opt} no encontrada")
